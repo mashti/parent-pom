@@ -1,9 +1,8 @@
 language: java
-script: mvn clean deploy
-before_install: 'echo $TRAVIS_SECURE_ENV_VARS'
-env:
-  global:
-    secure: pifHd0xqEBjKToSOuLPFtujYvAhKjjt4sL4GN8huoBo6IFyVvCL6WUknyIMLWEJVH4Il1aebdY9HkT1T84JWU+LIMxlYoEWRREVJXkEY2HGTo8GV8BkM8Pb8j9XEjnEUcu/OTnzDQgwcRqGGEGfEmpwgoF39/I0S/Oa0bATBuU0=
-
-notifications:
+env: 
+  global: 
+    secure: mW12MspPr9MbSeNiUan2lLWSWucm/ClCusuh+lthviXrW/E3y5qluogV+SFumSCrn4PX+9gjOnQdbUfLFbDboHNhk/VO0ah1/OktumIyQpkORisyWyuf4e13LFYUWZ1GCei7azcRT0nDcG8qiEu3RB+zAzOHDaK3lZJ36DEUDuA=
+before_install: echo $TRAVIS_SECURE_ENV_VARS
+notifications: 
   email: false
+script: mvn clean deploy
