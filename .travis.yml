@@ -4,3 +4,6 @@ before_install: 'echo $TRAVIS_SECURE_ENV_VARS'
 env:
   global:
     secure: pifHd0xqEBjKToSOuLPFtujYvAhKjjt4sL4GN8huoBo6IFyVvCL6WUknyIMLWEJVH4Il1aebdY9HkT1T84JWU+LIMxlYoEWRREVJXkEY2HGTo8GV8BkM8Pb8j9XEjnEUcu/OTnzDQgwcRqGGEGfEmpwgoF39/I0S/Oa0bATBuU0=
+
+notifications:
+  email: false
