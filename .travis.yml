@@ -1,14 +1,11 @@
 language: java
-
 env:
   global:
-    secure: aFWLEVD1tapnWA2Cz6pV/1ICzXH+ussIfQJTtZCsFC/UKnqFrcRwBs/i+mnGfUWev0zMPoSwOssR2O3QUXqDdZtz5y62d03tccsifbLeUg+gp7WYbNb17WAfw9cLY1b0eAqxVYoUhJcwyqCcfweEX6QsiN+GFsQNnh9NLeE1I20=
-
+  - secure: aFWLEVD1tapnWA2Cz6pV/1ICzXH+ussIfQJTtZCsFC/UKnqFrcRwBs/i+mnGfUWev0zMPoSwOssR2O3QUXqDdZtz5y62d03tccsifbLeUg+gp7WYbNb17WAfw9cLY1b0eAqxVYoUhJcwyqCcfweEX6QsiN+GFsQNnh9NLeE1I20=
+  - secure: TzicjmcQE0POs7BGJFS8GAI5Ch1oNrhivoB/k19qSBZCogPJlTDJX4GVfTWtxlBviSdrmZDqbCpsgicT7oDeai0cLjYeH+wMkDK58YSjB0TL8yMxm/tKjmq8LZP7//XA8DIE+adctYQBKohid1YCaGSKgmrswslPcFOt3Ur/uus=
 branches:
   only:
   - master
-
 script: mvn clean deploy
-
 notifications:
   email: false
