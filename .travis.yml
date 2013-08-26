@@ -6,7 +6,7 @@ env:
 branches:
   only:
   - master
-script: mvn clean deploy cobertura:cobertura coveralls:cobertura
+script: mvn clean deploy
 
 notifications:
   email: false
