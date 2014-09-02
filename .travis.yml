@@ -6,7 +6,7 @@ env:
 branches:
   only:
   - master
-script: mvn clean deploy
+script: mvn -x clean deploy
 
 notifications:
   email: false
