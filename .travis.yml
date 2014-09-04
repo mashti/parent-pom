@@ -1,13 +1,17 @@
 language: java
 env:
   global:
-  - secure: aFWLEVD1tapnWA2Cz6pV/1ICzXH+ussIfQJTtZCsFC/UKnqFrcRwBs/i+mnGfUWev0zMPoSwOssR2O3QUXqDdZtz5y62d03tccsifbLeUg+gp7WYbNb17WAfw9cLY1b0eAqxVYoUhJcwyqCcfweEX6QsiN+GFsQNnh9NLeE1I20=
-  - secure: TzicjmcQE0POs7BGJFS8GAI5Ch1oNrhivoB/k19qSBZCogPJlTDJX4GVfTWtxlBviSdrmZDqbCpsgicT7oDeai0cLjYeH+wMkDK58YSjB0TL8yMxm/tKjmq8LZP7//XA8DIE+adctYQBKohid1YCaGSKgmrswslPcFOt3Ur/uus=
+  - secure: iGYl1g7OxMpy4BH9lKbAxEgbvq9UlNXfdfnIvdrDWRp/0E6wbv12vCAH68rPE2B43xuO5/H1o4H+BimjsGARkLYi5S1SJ7fut4Izh/nfO86yktYYgCzCBQ/eud0PiNKsQXTFUV4pUTq58Skqtli76eIMT5eocVwMQUsbF6EeoTE=
 branches:
   only:
   - master
-script: mvn -X clean deploy
+before_script:
+  - cd
+  - git clone https://github.com/github/maven-plugins.git
+  - cd maven-plugins
+  - mvn clean install
+  - cd /home/travis/build/parent-pom/
 
+script: mvn clean deploy
 notifications:
   email: false
-
