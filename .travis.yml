@@ -6,11 +6,12 @@ branches:
   only:
   - master
 before_script:
+  - pwd
   - cd
   - git clone https://github.com/github/maven-plugins.git
   - cd maven-plugins
   - mvn clean install
-  - cd /home/travis/build/parent-pom/
+  - pwd
 
 script: mvn clean deploy
 notifications:
