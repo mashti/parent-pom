@@ -11,7 +11,7 @@ before_script:
   - git clone https://github.com/github/maven-plugins.git
   - cd maven-plugins
   - mvn clean install
-  - pwd
+  - cd /home/travis/build/mashti/parent-pom
 
 script: mvn clean deploy
 notifications:
