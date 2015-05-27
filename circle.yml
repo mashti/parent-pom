@@ -9,8 +9,9 @@ general:
     only:
       - master
 
-script: 
-  - mvn clean deploy
+test:
+  post:
+    - mvn clean deploy
 
 notify:
   email: false
