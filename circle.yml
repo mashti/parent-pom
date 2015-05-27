@@ -10,5 +10,5 @@ general:
       - master
 
 test:
-  post:
+  override:
     - mvn clean deploy
