@@ -1,11 +1,10 @@
-language: java
+image: oraclejdk8
 env:
   global:
   - secure: iGYl1g7OxMpy4BH9lKbAxEgbvq9UlNXfdfnIvdrDWRp/0E6wbv12vCAH68rPE2B43xuO5/H1o4H+BimjsGARkLYi5S1SJ7fut4Izh/nfO86yktYYgCzCBQ/eud0PiNKsQXTFUV4pUTq58Skqtli76eIMT5eocVwMQUsbF6EeoTE=
-branches:
-  only:
-  - master
+branch: master
 
-script: mvn clean deploy
-notifications:
+script: 
+  - mvn clean deploy
+notify:
   email: false

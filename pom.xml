@@ -1,19 +1,29 @@
 <!--
 
-    This file is part of parent-pom.
+    Copyright © 2013, Masih H. Derkani
+    All rights reserved.
 
-    parent-pom is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+        * Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+        * Neither the name of the <organization> nor the
+          names of its contributors may be used to endorse or promote products
+          derived from this software without specific prior written permission.
 
-    parent-pom is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with parent-pom.  If not, see <http://www.gnu.org/licenses/>.
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -26,11 +36,13 @@
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
-    <url>http://mashti.org/${project.artifactId}</url>
-
+    <url>http://github.io/masih/${project.artifactId}</url>
+    <inceptionYear>2013</inceptionYear>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <github.user>mashti</github.user>
+        
+        <github.user>masih</github.user>
         <github.repository>${project.artifactId}</github.repository>
         <github.repository.url>http://github.com/${github.user}/${github.repository}</github.repository.url>
         <github.connection>scm:git:ssh://git@github.com/${github.user}/${github.repository}</github.connection>
@@ -40,11 +52,12 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <owner>Masih H. Derkani</owner>
     </properties>
-
+        
     <organization>
-        <name>Mashti</name>
-        <url>http://mashti.org</url>
+        <name>${owner}</name>
+        <url>http://derkani.org</url>
     </organization>
 
     <scm>
@@ -55,17 +68,17 @@
 
     <licenses>
         <license>
-            <name>GNU General Public License 3.0</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <name>BSD 3-Clause License</name>
+            <url>http://opensource.org/licenses/BSD-3-Clause</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <repositories>
         <repository>
-            <id>org.mashti.maven</id>
-            <name>Mashti Maven Repository</name>
-            <url>http://maven.mashti.org</url>
+            <id>io.github.masih.maven</id>
+            <name>Masih's Maven Repository</name>
+            <url>http://masih.github.io/maven</url>
         </repository>
     </repositories>
 
@@ -136,8 +149,8 @@
                     <message>Maven artifacts for ${project.groupId}:${project.artifactId}:${project.version} ~${maven.build.timestamp}</message>
                     <outputDirectory>${built.repo.dir}</outputDirectory>
                     <merge>true</merge>
-                    <repositoryOwner>mashti</repositoryOwner>
-                    <repositoryName>maven</repositoryName>
+                    <repositoryOwner>masih</repositoryOwner>
+                    <repositoryName>maven-repo</repositoryName>
                     <branch>refs/heads/gh-pages</branch>
                     <oauth2Token>${env.OAUTH_TOKEN}</oauth2Token>
 
@@ -170,9 +183,13 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
-                    <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
+                    <header>com/mycila/maven/plugin/license/templates/BSD-3.txt</header>
+                    <properties>
+                        <owner>${owner}</owner>
+                    </properties>
                     <excludes>
                         <exclude>**/README</exclude>
+                        <exclude>LICENSE</exclude>
                         <exclude>src/test/resources/**</exclude>
                         <exclude>src/main/resources/**</exclude>
                     </excludes>
