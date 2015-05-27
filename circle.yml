@@ -1,0 +1,16 @@
+machine:
+  java:
+    version: oraclejdk8
+
+general:
+  artifacts:
+    - target/*.jar
+  branches:
+    only:
+      - master
+
+script: 
+  - mvn clean deploy
+
+notify:
+  email: false
