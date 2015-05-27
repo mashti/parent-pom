@@ -12,6 +12,3 @@ general:
 test:
   post:
     - mvn clean deploy
-
-notify:
-  email: false
