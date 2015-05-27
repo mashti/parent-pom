@@ -44,8 +44,8 @@
         
         <github.user>masih</github.user>
         <github.repository>${project.artifactId}</github.repository>
-        <github.repository.url>http://github.com/${github.user}/${github.repository}</github.repository.url>
-        <github.connection>scm:git:ssh://git@github.com/${github.user}/${github.repository}</github.connection>
+        <github.repository.url>https://github.com/${github.user}/${github.repository}</github.repository.url>
+        <github.connection>scm:git:git@github.com:${github.user}/${github.repository}.git</github.connection>
         <built.repo.dir>${project.build.directory}/maven-repository</built.repo.dir>
 
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -144,12 +144,12 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.10</version>
+                <version>0.11</version>
                 <configuration>
                     <message>Maven artifacts for ${project.groupId}:${project.artifactId}:${project.version} ~${maven.build.timestamp}</message>
                     <outputDirectory>${built.repo.dir}</outputDirectory>
                     <merge>true</merge>
-                    <repositoryOwner>masih</repositoryOwner>
+                    <repositoryOwner>${github.user}</repositoryOwner>
                     <repositoryName>maven</repositoryName>
                     <branch>refs/heads/gh-pages</branch>
                     <oauth2Token>${env.OAUTH_TOKEN}</oauth2Token>
@@ -236,7 +236,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
