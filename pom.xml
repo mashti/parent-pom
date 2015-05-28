@@ -36,12 +36,13 @@
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
-    <url>http://github.io/masih/${project.artifactId}</url>
+    <description>Common functionality for my Maven projects</description>
+    <url>http://derkani.org/${project.artifactId}</url>
     <inceptionYear>2015</inceptionYear>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+
         <github.user>masih</github.user>
         <github.repository>${project.artifactId}</github.repository>
         <github.repository.url>https://github.com/${github.user}/${github.repository}</github.repository.url>
@@ -54,7 +55,7 @@
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <owner>Masih H. Derkani</owner>
     </properties>
-        
+
     <organization>
         <name>${owner}</name>
         <url>http://derkani.org</url>
@@ -87,7 +88,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -122,13 +123,19 @@
                     <altDeploymentRepository>internal.repo::default::file://${built.repo.dir}</altDeploymentRepository>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.11</version>
                 <configuration>
-                    <message>Maven artifacts for ${project.groupId}:${project.artifactId}:${project.version} ~${maven.build.timestamp}</message>
+                    <message>Maven artifacts for ${project.groupId}:${project.artifactId}:${project.version}
+                        ~${maven.build.timestamp}
+                    </message>
                     <outputDirectory>${built.repo.dir}</outputDirectory>
                     <merge>true</merge>
                     <repositoryOwner>${github.user}</repositoryOwner>
@@ -186,24 +193,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.ow2.asm</groupId>
-                        <artifactId>asm</artifactId>
-                        <version>5.0.3</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <format>xml</format>
-                    <maxmem>256m</maxmem>
-                    <aggregate>true</aggregate>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -211,8 +200,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.18.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>2.10.3</version>
                 <configuration>
                     <detectLinks>true</detectLinks>
                     <aggregate>true</aggregate>
