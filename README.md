@@ -4,7 +4,7 @@ Parent POM
 Provides common build functionality across my Maven projects.
 
 ## Build Status
-[![Build Status](https://img.shields.io/circleci/project/masih/jetson.svg](https://circleci.com/gh/masih/parent-pom)
+[![Build Status](https://img.shields.io/circleci/project/masih/jetson.svg)](https://circleci.com/gh/masih/parent-pom)
 
 ## License
 The project is licensed under BSD 3-Clause License.
